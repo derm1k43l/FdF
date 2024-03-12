@@ -6,7 +6,7 @@
 #    By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:17:17 by mrusu             #+#    #+#              #
-#    Updated: 2024/03/01 17:58:54 by mrusu            ###   ########.fr        #
+#    Updated: 2024/03/11 16:26:31 by mrusu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ NAME = fdf
 HEADER = $(INC_DIR)/fdf.h
 
 # LIST OF SOURCE FILES
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/read.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/read.c $(SRC_DIR)/error.c $(SRC_DIR)/draw.c
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # COLORS
@@ -46,7 +46,7 @@ NC = \033[0m
 
 # ALL RULE
 # RULES TO MAKE EXECUTABLE AND LIBFT AND MLX
-all: mlx $(NAME) $(LIBFT)
+all: mlx $(LIBFT) $(NAME)
 	@echo "$(GREEN)FdF build successful$(NC)"
 
 $(NAME): $(OBJS)

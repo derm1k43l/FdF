@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:32:52 by mrusu             #+#    #+#             */
-/*   Updated: 2024/03/01 17:52:54 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/12 11:51:51 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	get_height(char *file_name)
 
 	height = 0;
 	fd = open(file_name, O_RDONLY, 0);
-	while(get_next_line(fd))
+	if (fd == -1)
+		return -1;
+	while ((line = get_next_line(fd)) != NULL)
 	{
 		height++;
 		free(line);
@@ -36,8 +38,8 @@ int	get_width(char *file_name)
 	char	*line;
 
 	fd = open(file_name, O_RDONLY, 0);
-	get_next_line(fd);
-	width = ft_split(line, ' ');
+	line = get_next_line(fd);
+	width = count_words(line);
 	free(line);
 	close(fd);
 	return (width);
@@ -65,20 +67,45 @@ void	read_map(char *file_name, t_map *data)
 	char *line;
 	int i;
 	
+    if (file_name == NULL || data == NULL)
+        generic_error();
+	fd = open(file_name, O_RDONLY, 0);
+    if (fd == -1)
+        generic_error();
 	data->height = get_height(file_name);
-	data->width = get_height(file_name);
+	data->width = get_width(file_name);
 	data->depth = (int **)malloc(sizeof(int *) * (data->height + 1));
 	i = 0;
 	while (i <= data->height)
 		data->depth[i++] = (int *)malloc(sizeof(int) * (data->width + 1));
-	fd = open(file_name, O_RDONLY, 0);
 	i = 0;
-	while (get_next_line(fd))
+	while((line = get_next_line(fd)) != NULL)
 	{
 		fill_matrix(data->depth[i], line);
 		free(line);
 		i++;
 	}
-	close(fd);
+	close(fd); // maywb check here for rox not = with coloms
 	data->depth[i] = NULL;
+}
+
+int count_words(const char *str)
+{
+    int word_count = 0;
+    int in_word = 0;
+
+    while (*str != '\0')
+    {
+        if (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r')
+        {
+            in_word = 0;
+        }
+        else if (!in_word)
+        {
+            in_word = 1;
+            word_count++;
+        }
+        str++;
+    }
+    return word_count;
 }
