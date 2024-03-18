@@ -6,13 +6,13 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:22 by mrusu             #+#    #+#             */
-/*   Updated: 2024/03/12 10:55:19 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/15 11:06:39 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-void	print_menu(t_fdf *fdf) // just example 
+void	print_menu(t_map *fdf) // just example 
 {
 	int		y;
 	void	*mlx;

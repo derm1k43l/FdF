@@ -6,7 +6,7 @@
 #    By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:17:17 by mrusu             #+#    #+#              #
-#    Updated: 2024/03/11 16:26:31 by mrusu            ###   ########.fr        #
+#    Updated: 2024/03/18 14:31:08 by mrusu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = cc
 
 # FLAGS FOR COMPILATION
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g -Ofast -Wunreachable-code
 
 # LIBRARY NAME
 LIBFT = libft.a
@@ -22,7 +22,7 @@ LIBFT_DIR = libft
 
 # MLX LIBRARY
 MLX_DIR = mlx42
-MLX_FLAGS = -L$(MLX_DIR)/build -lmlx42 -framework OpenGL -framework AppKit
+MLX_FLAGS = ./MLX42/build/libmlx42.a -Iinclude -lglfw -framework Cocoa -framework OpenGL -framework IOKit
 MLX_INC = -I$(MLX_DIR)
 
 # FdF DIRECTORIES
@@ -37,7 +37,7 @@ NAME = fdf
 HEADER = $(INC_DIR)/fdf.h
 
 # LIST OF SOURCE FILES
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/read.c $(SRC_DIR)/error.c $(SRC_DIR)/draw.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/read.c $(SRC_DIR)/error.c $(SRC_DIR)/draw.c $(SRC_DIR)/utils.c
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # COLORS
