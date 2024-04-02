@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 23:04:51 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/13 13:12:26 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:19 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ DESCRIPTION
      char or the value of EOF.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_isprint(int i)
 {

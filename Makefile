@@ -6,7 +6,7 @@
 #    By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:17:17 by mrusu             #+#    #+#              #
-#    Updated: 2024/03/18 14:31:08 by mrusu            ###   ########.fr        #
+#    Updated: 2024/03/29 13:56:58 by mrusu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = cc
 
 # FLAGS FOR COMPILATION
-FLAGS = -Wall -Wextra -Werror -g -Ofast -Wunreachable-code
+FLAGS = -Wall -Wextra -Werror -g -Ofast -Wunreachable-code # -fsanitize=address
 
 # LIBRARY NAME
 LIBFT = libft.a
@@ -37,7 +37,8 @@ NAME = fdf
 HEADER = $(INC_DIR)/fdf.h
 
 # LIST OF SOURCE FILES
-SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/read.c $(SRC_DIR)/error.c $(SRC_DIR)/draw.c $(SRC_DIR)/utils.c
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/read.c $(SRC_DIR)/hooks.c $(SRC_DIR)/draw.c $(SRC_DIR)/utils.c \
+		$(SRC_DIR)/color.c
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 # COLORS

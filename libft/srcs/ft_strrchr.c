@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:15:36 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/17 11:34:46 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:30 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ RETURN VALUES
 
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

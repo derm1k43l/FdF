@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 10:59:34 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 18:44:40 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:56 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ DESCRIPTION
      always NUL terminating the copied string.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 char	*ft_strdup(const char *s1)
 {

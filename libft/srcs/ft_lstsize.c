@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:45:32 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/25 20:05:11 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:06 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // External functs. None
 // Description Counts the number of nodes in a list.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

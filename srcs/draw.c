@@ -6,150 +6,103 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:07 by mrusu             #+#    #+#             */
-/*   Updated: 2024/03/18 17:47:19 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/26 16:42:35 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-
-// int	lin_in(int color_start, int color_end, float step)
-// {
-// 	t_color	co;
-
-// 	co.r_start = (color_start >> 16) & 0xFF;
-// 	co.g_start = (color_start >> 8) & 0xFF;
-// 	co.b_start = color_start & 0xFF;
-// 	co.a_start = (color_start >> 24) & 0xFF;
-// 	co.r_end = (color_end >> 16) & 0xFF;
-// 	co.g_end = (color_end >> 8) & 0xFF;
-// 	co.b_end = color_end & 0xFF;
-// 	co.a_end = (color_end >> 24) & 0xFF;
-// 	co.r_res = (int)lerp(co.r_start, co.r_end, step);
-// 	co.g_res = (int)lerp(co.g_start, co.g_end, step);
-// 	co.b_res = (int)lerp(co.b_start, co.b_end, step);
-// 	co.a_res = (int)lerp(co.a_start, co.a_end, step);
-// 	return ((co.a_res << 24) | (co.r_res << 16) | (co.g_res << 8) | (co.b_res));
-// }
-
-t_draw transform(t_fdf fdf)
+t_line	transform(t_map *map, t_line line)
 {
-    t_draw coord;
-    t_map *map = fdf.map;
+	float	temp_x;
+	float	temp_y;
+	float	temp_x1;
+	float	temp_y1;
 
-	float temp_x;
-	float temp_y;
-	float temp_x1;
-	float temp_y1;
-
-    temp_x = (coord.x - coord.y) * cos(map->cos);
-    temp_y = (coord.x + coord.y) * sin(map->sin) - coord.z;
-    temp_x1 = (coord.x1 - coord.y1) * cos(map->cos);
-    temp_y1 = (coord.x1 + coord.y1) * sin(map->sin) - coord.z1;
-    coord.x = temp_x * cos(map->cosz) - temp_y * sin(map->sinz);
-    coord.y = temp_x * sin(map->cosz) - temp_y * cos(map->sinz);
-    coord.x1 = temp_x1 * cos(map->cosz) - temp_y1 * sin(map->sinz);
-    coord.y1 = temp_x1 * sin(map->cosz) - temp_y1 * cos(map->sinz);
-    coord.x += map->x_pos;
-    coord.y += map->y_pos;
-    coord.x1 += map->x_pos;
-    coord.y1 += map->y_pos;
-    return coord;
+	temp_x = (line.x_start - line.y_start) * cos(map->cos_angle);
+	temp_y = (line.x_start + line.y_start) * sin(map->sin_angle) - line.z_start;
+	temp_x1 = (line.x_end - line.y_end) * cos(map->cos_angle);
+	temp_y1 = (line.x_end + line.y_end) * sin(map->sin_angle) - line.z_end;
+	line.x_start = temp_x * cos(map->cos_z_angle)
+		- temp_y * sin(map->sin_z_angle) + map->x_position;
+	line.y_start = temp_x * sin(map->cos_z_angle)
+		+ temp_y * cos(map->sin_z_angle) + map->y_position;
+	line.x_end = temp_x1 * cos(map->cos_z_angle)
+		- temp_y1 * sin(map->sin_z_angle) + map->x_position;
+	line.y_end = temp_x1 * sin(map->cos_z_angle)
+		+ temp_y1 * cos(map->sin_z_angle) + map->y_position;
+	return (line);
 }
 
-
-void draw_line(t_fdf fdf, int max)
+void	bresenham(t_line line, t_map *map)
 {
-    float step;
-    float increment = 1.0;
-    t_draw coord = *(fdf.draw); // Accessing draw structure from fdf
+	int	max;
 
-    // if (!((coord.x > 0 && coord.x <= W_WIDTH) && (coord.x1 > 0 && coord.x1 <= W_WIDTH)
-    //       && (coord.y > 0 && coord.y <= W_HEIGHT) && (coord.y1 > 0 && coord.y1 <= W_HEIGHT)))
-    //     return;
-	if (coord.x <= 0 || coord.x > W_WIDTH || coord.x1 <= 0 || coord.x1 > W_WIDTH
-    	|| coord.y <= 0 || coord.y > W_HEIGHT || coord.y1 <= 0 || coord.y1 > W_HEIGHT)
-    	return;
-    // while ((int)(coord.x - coord.x1) || (int)(coord.y - coord.y1))
-    // {
-    //     step = increment++ / max;
-    //     if (coord.z == 0 && coord.z1 != 0)
-    //         coord.gradient_up = lin_in(fdf.map->co_bu, fdf.map->co_to, step);
-    //     if (coord.z == 0 && coord.z1 != 0)
-    //         mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, coord.gradient_up);
-    //     if (coord.z != 0 && coord.z1 == 0)
-    //         coord.gradient_do = lin_in(fdf.map->co_to, fdf.map->co_bu, step);
-    //     if (coord.z != 0 && coord.z1 == 0)
-    //         mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, coord.gradient_do);
-    //     if (coord.z != 0 && coord.z1 != 0)
-    //         mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, fdf.map->co_to);
-    //     if (coord.z == 0 && coord.z1 == 0)
-    //         mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, fdf.map->color_grind);
-    //     coord.x += coord.x_step;
-    //     coord.y += coord.y_step;
-	while ((int)(coord.x - coord.x1) || (int)(coord.y - coord.y1))
-    {
-        float step = step++ / max;
-
-        if (coord.z == 0 && coord.z1 != 0)
-            mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, lin_in(fdf.map->co_bu, fdf.map->co_to, step));
-        else if (coord.z != 0 && coord.z1 == 0)
-            mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, lin_in(fdf.map->co_to, fdf.map->co_bu, step));
-        else if (coord.z != 0 && coord.z1 != 0)
-            mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, fdf.map->co_to);
-        else if (coord.z == 0 && coord.z1 == 0)
-            mlx_put_pixel(fdf.mlx_windows, coord.x, coord.y, fdf.map->color_grid);
-
-        coord.x += coord.x_step;
-        coord.y += coord.y_step;
-    }
+	line.z_start = map->depth_matrix[(int)line.y_start][(int)line.x_start];
+	line.z_end = map->depth_matrix[(int)line.y_end][(int)line.x_end];
+	line.z_start *= map->size * map->depth_scale;
+	line.z_end *= map->size * map->depth_scale;
+	line.x_start *= map->size;
+	line.y_start *= map->size;
+	line.x_end *= map->size;
+	line.y_end *= map->size;
+	line = transform(map, line);
+	line.x_step = line.x_end - line.x_start;
+	line.y_step = line.y_end - line.y_start;
+	max = maxim(absolute(line.x_step), absolute(line.y_step));
+	line.x_step /= max;
+	line.y_step /= max;
+	draw_line(line, map, max);
 }
 
-void bresenham(t_fdf *fdf)
+void	draw_line(t_line line, t_map *map, int max)
 {
-    t_draw *draw = fdf->draw; // Accessing the draw field from the fdf structure
-
-    draw->z = fdf->map->depth[(int)draw->y][(int)draw->x];
-    draw->z1 = fdf->map->depth[(int)draw->y1][(int)draw->x1];
-    draw->z *= fdf->map->size * fdf->map->depth;
-    draw->z1 *= fdf->map->size * fdf->map->depth;
-    draw->x *= fdf->map->size;
-    draw->y *= fdf->map->size;
-    draw->x1 *= fdf->map->size;
-    draw->y1 *= fdf->map->size;
-    *draw = perspective(*draw, fdf->map);
-    draw->x_step = draw->x1 - draw->x;
-    draw->y_step = draw->y1 - draw->y;
-    int max = faster(absolute(draw->x_step), absolute(draw->y_step));
-    draw->x_step /= max;
-    draw->y_step /= max;
-    draw_line(*fdf, max); // Pass fdf as a pointer
+	if (!((line.x_start > 0 && line.x_start <= W_WIDTH)
+			&& (line.x_end > 0 && line.x_end <= W_WIDTH)
+			&& (line.y_start > 0 && line.y_start <= W_HEIGHT)
+			&& (line.y_end > 0 && line.y_end <= W_HEIGHT)))
+		return ;
+	if (max == 0)
+		return ;
+	while ((int)(line.x_start - line.x_end) || (int)(line.y_start - line.y_end))
+	{
+		if (line.z_start == 0 && line.z_end == 0)
+			mlx_put_pixel(map->win, line.x_start, line.y_start,
+				map->color_base);
+		else if (line.z_start != 0 && line.z_end != 0)
+			mlx_put_pixel(map->win, line.x_start, line.y_start, map->color_top);
+		else
+			mlx_put_pixel(map->win, line.x_start, line.y_start,
+				map->color_transit);
+		line.x_start += line.x_step;
+		line.y_start += line.y_step;
+	}
 }
 
-void draw_grid(t_fdf *fdf)
+void	draw_base(t_map *map)
 {
-    t_draw coo;
+	t_line	line;
 
-    coo.y = 0;
-    while (coo.y < fdf->map->height)
-    {
-        coo.x = 0;
-        while (coo.x < fdf->map->width)
-        {
-            if (coo.x < fdf->map->width - 1)
-            {
-                coo.x1 = coo.x + 1;
-                coo.y1 = coo.y;
-                bresenham(fdf);
-            }
-            if (coo.y < fdf->map->height - 1)
-            {
-                coo.x1 = coo.x;
-                coo.y1 = coo.y + 1;
-                bresenham(fdf);
-            }
-            coo.x++;
-        }
-        coo.y++;
-    }
+	line.y_start = 0;
+	while (line.y_start < map->height)
+	{
+		line.x_start = 0;
+		while (line.x_start < map->width)
+		{
+			if (line.x_start < map->width - 1)
+			{
+				line.x_end = line.x_start + 1;
+				line.y_end = line.y_start;
+				bresenham(line, map);
+			}
+			if (line.y_start < map->height - 1)
+			{
+				line.x_end = line.x_start;
+				line.y_end = line.y_start + 1;
+				bresenham(line, map);
+			}
+			line.x_start++;
+		}
+		line.y_start++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 12:52:53 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/25 19:52:30 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:37 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 // External functs. None
 // Description Adds the node ’new’ at the beginning of the list.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

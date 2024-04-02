@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:55:13 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/14 17:36:35 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:18 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ to create a new string (with malloc(3)) resulting
 from successive applications of ’f’.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

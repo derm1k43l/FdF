@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:02:17 by mrusu             #+#    #+#             */
-/*   Updated: 2023/12/12 13:51:37 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/29 15:47:13 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 // Description Write a function hat returns a line read from a
 // file descriptor
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 static char	*extract_update(char *r_buffer)
 {
@@ -100,6 +100,8 @@ char	*get_next_line(int fd)
 	unprocessed = extract_update(line);
 	return (line);
 }
+
+// --------FOR TESTING PORPUS OF THIS ALONE-----------
 
 // int	main(void)
 // {

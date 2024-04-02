@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:00:54 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/25 11:47:59 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/29 15:35:18 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ character ’c’ as a delimiter. The array must end
 with a NULL pointer.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 static int	count_words(char const *s, char c)
 {

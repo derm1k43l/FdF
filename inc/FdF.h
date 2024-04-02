@@ -6,16 +6,17 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:14:31 by mrusu             #+#    #+#             */
-/*   Updated: 2024/03/12 11:01:17 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/02 15:42:28 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-//Standart
+// Standard
 # include <signal.h>
 # include <stdlib.h>
+# include <stdint.h>
 # include <unistd.h>
 # include <string.h>
 # include <stdio.h>
@@ -43,42 +44,75 @@
 # define RED 0xFF0000
 
 // App
-# define W_WIDTH 1500
-# define W_HEIGHT 1100
+# define W_WIDTH 2560
+# define W_HEIGHT 1440
 
-// # define W_MIN_W 700
-// # define W_MAX_W -1
-
+// Strucuture for map atributes
 typedef struct s_map
 {
-	int	width;
-	int	height;
-	int	**depth;
-	void *mlx_dis; //disply
- 	void *mlx_win;
-	void *init; // use to initail map? read more
-	int zoom;
-	int color;
+	int		height;
+	int		width;
+	int		**depth_matrix;
+	int		size;
+	int		color_base;
+	int		color_transit;
+	int		color_top;
+	int		x_position;
+	int		y_position;
+	float	sin_angle;
+	float	cos_angle;
+	float	sin_z_angle;
+	float	cos_z_angle;
+	float	depth_scale;
+	void	*init;
+	void	*win;
 }	t_map;
 
-typedef struct s_camera
+// Structure for lines atributes
+typedef struct s_line
 {
+	float	x_start;
+	float	y_start;
+	float	x_end;
+	float	y_end;
+	float	z_start;
+	float	z_end;
+	float	x_step;
+	float	y_step;
+	int		gradient_up;
+	int		gradient_down;
+}	t_line;
 
-}	t_camera;
+// color.c
+void	palette_yellowish(t_map *map);
+void	palette_calming(t_map *map);
+void	print_current_values(t_map *map);
+void	reset_background(t_map *map);
 
-// Read
-int		get_height(char *file_name);
-int		get_width(char *file_name);
-void	fill_matrix(int *depth, char *line);
-void	read_map(char *file_name, t_map *data);
-int 	count_words(const char *str);
+// draw.c
+t_line	transform(t_map *map, t_line line);
+void	bresenham(t_line line, t_map *map);
+void	draw_line(t_line line, t_map *map, int max);
+void	draw_base(t_map *map);
 
-// Erorr
-void	generic_error();
+// hooks.
+void	key_hook(void *parameter);
+void	control_hook(t_map *map);
+void	other_key_hook(t_map *map);
+void	reset_struct(t_map *map);
 
-// Drow
-void	bresenham(int x, int y, int x1, int y1, t_map *data);
-void	draw(t_map *data);
+// read.c
+int		get_map_dimensions(char *file_name, t_map *map);
+void	allocate_depth_matrix(t_map *map);
+void	get_depth(int *depth, char *line);
+int		count_words(const char *str);
+void	read_map(char *file_name, t_map *map);
 
+// utils.c
+float	smooth_interpolate(float current, float target, float speed);
+float	absolute(float a);
+void	cleanup_map(t_map *map);
+float	maxim(float x, float y);
+void	error_exit(t_map *map, int flag);
 
 #endif

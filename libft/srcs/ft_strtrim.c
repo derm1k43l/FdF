@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:34:02 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/16 17:19:51 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:34 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Description Allocates (with malloc(3)) and returns a copy of
 from the beginning and the end of the string.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 static void	find_trim(const char *s, const char *set, size_t *strt, size_t *e)
 {

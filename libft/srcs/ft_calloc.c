@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:03:52 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/18 17:52:35 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:29:53 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ RETURN VALUES
      is an error, they return a NULL pointer and set errno to ENOMEM.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:53:48 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/25 19:49:02 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:41 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // Finally, the pointer to the list must be set to
 // NULL.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {

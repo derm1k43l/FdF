@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:35:38 by mrusu             #+#    #+#             */
-/*   Updated: 2023/12/12 13:48:27 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/26 13:20:00 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {

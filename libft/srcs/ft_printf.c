@@ -6,15 +6,53 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:24:39 by mrusu             #+#    #+#             */
-/*   Updated: 2023/12/02 13:22:26 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/01 16:44:38 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_print_chr(int c)
 {
 	return (write(1, &c, 1));
+}
+
+static int	ft_putnbrlong(long n)
+{
+	int		count;
+
+	count = 0;
+	if (n < 0)
+	{
+		count += write(1, "-", 1);
+		n *= -1;
+	}
+	if (n >= 10)
+		count += ft_putnbrlong(n / 10);
+	count += ft_print_chr(n % 10 + '0');
+	return (count);
+}
+
+static int	ft_print_float(double n)
+{
+	int			count;
+	long		integer_part;
+	double		fractional_part;
+
+	count = 0;
+	if (n < 0)
+		n *= -1;
+	integer_part = (long)n;
+	fractional_part = n - integer_part;
+	count += ft_putnbrlong(integer_part);
+	count += write(1, ".", 1);
+	while (fractional_part > 0.000001 && count < 10)
+	{
+		fractional_part *= 10;
+		count += ft_print_chr((int)fractional_part + '0');
+		fractional_part -= (int)fractional_part;
+	}
+	return (count);
 }
 
 static int	ft_printf_chk(char conversions, va_list ap)
@@ -38,6 +76,8 @@ static int	ft_printf_chk(char conversions, va_list ap)
 		return_v += ft_print_digits((long)va_arg(ap, unsigned int), 16, 'X');
 	else if (conversions == '%')
 		return_v += write(1, &conversions, 1);
+	else if (conversions == 'f')
+		return_v += ft_print_float(va_arg(ap, double));
 	return (return_v);
 }
 

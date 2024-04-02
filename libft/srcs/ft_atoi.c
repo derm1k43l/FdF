@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:02:04 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/17 14:40:24 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:29:15 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ IMPLEMENTATION NOTES
      and atoi_l() functions, especially in new code.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_atoi(const char *str)
 {

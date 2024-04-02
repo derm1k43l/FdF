@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:34:29 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 15:28:36 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:14 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 // This behavior is not required by C and
 // portable code should only depend on the sign of the returned value.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

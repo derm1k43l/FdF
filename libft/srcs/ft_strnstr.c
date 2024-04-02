@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:47:20 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 19:39:25 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:26 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ RETURN VALUES
      character of the first occurrence of needle is returned.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

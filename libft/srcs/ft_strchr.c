@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 20:48:55 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 13:48:11 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:52 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ RETURN VALUES
      character, or NULL if the character does not appear in the string.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

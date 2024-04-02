@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:58:26 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/27 09:44:36 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:55 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 // the function ’f’. The ’del’ function is used to
 // delete the content of a node if needed.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

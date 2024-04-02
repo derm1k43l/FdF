@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:52:45 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/23 14:54:16 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:37 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ The substring begins at index ’start’ and is of
 maximum size ’len’.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

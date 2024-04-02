@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:32:30 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 15:26:30 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:29:23 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // The bzero() function writes n zeroed bytes to the string s.  
 // If n is zero, bzero() does nothing.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

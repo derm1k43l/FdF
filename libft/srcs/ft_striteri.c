@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:59:05 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/14 17:19:05 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:59 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ as first argument. Each character is passed by
 address to ’f’ to be modified if necessary.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

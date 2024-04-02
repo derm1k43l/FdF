@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:17:49 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 16:26:58 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:02 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 // the value of the parameter ’content’. The variable
 // ’next’ is initialized to NULL.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 t_list	*ft_lstnew(void *content)
 {

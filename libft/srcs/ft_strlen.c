@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:26:13 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/17 08:31:27 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:15 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ RETURN VALUES
      same result as strlen() or maxlen, whichever is smaller.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_strlen(const char *s)
 {

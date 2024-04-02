@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:10:23 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/18 17:50:55 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:38 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Description Outputs the string ’s’ to the given file descriptor
 followed by a newline.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

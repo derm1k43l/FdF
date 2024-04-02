@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:54:57 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/17 14:43:10 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:02 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ string, which is the result of the concatenation
 of ’s1’ and ’s2’.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

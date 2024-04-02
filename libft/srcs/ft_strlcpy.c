@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:13:07 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 15:24:06 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:09 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ RETURN VALUES
      It is the caller's responsibility to handle this.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {

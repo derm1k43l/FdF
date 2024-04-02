@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:06:06 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/18 17:46:59 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:29 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ representing the integer received as an argument.
 Negative numbers must be handled.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 static void	cnv_num(char *str, long n, int l, int sign)
 

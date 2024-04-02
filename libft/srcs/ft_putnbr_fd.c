@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:09:12 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/16 18:04:46 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:42 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Description Outputs the integer ’n’ to the given file
 descriptor.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

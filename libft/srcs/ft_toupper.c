@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:34:02 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/13 18:13:41 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:45 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ RETURN VALUES
      ment is returned unchanged.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_toupper(int i)
 {

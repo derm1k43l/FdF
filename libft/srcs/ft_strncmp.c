@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:15:06 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/22 19:36:26 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:32:22 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ RETURN VALUES
      unsigned characters, so that `\200' is greater than `\0'.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

@@ -6,11 +6,11 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:01:14 by mrusu             #+#    #+#             */
-/*   Updated: 2023/12/02 13:22:40 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:02 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_print_digits(long long nbr, int base, char letter_case)
 {

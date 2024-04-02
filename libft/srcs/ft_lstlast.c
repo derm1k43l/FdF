@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:47:34 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/25 19:53:39 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:52 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // External functs. None
 // Description Returns the last node of the list.
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

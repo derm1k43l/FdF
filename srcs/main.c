@@ -6,62 +6,47 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:04:40 by mrusu             #+#    #+#             */
-/*   Updated: 2024/03/18 16:31:03 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/02 15:50:49 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-//-----pseudo code-----
-// 1. read file
-// 	- get height
-// 	- get width
-// 	- allocate memory for **int by using witht and height (with ft_split)
-// 	- read file and write number into **int matrix with split ando atoi
-// 2. drawing line (bresenham alg)
-// 3. function which draws lines beetwen evey dot
-// 4. make 3d ish
-// 5. adding futures
-// 6. error
-// 7. leaks and chack
-
-int deal_key(int key, void *data)
+void	init_struct(t_map *map)
 {
-	ft_printf("%d\n", key);
-	return (0);
-	(void)data;
+	map->init = mlx_init(1920, 1080, "FdF by mrusu", true);
+	map->win = mlx_new_image(map->init, W_WIDTH, W_HEIGHT);
+	map->size = 25;
+	map->x_position = 800;
+	map->y_position = 240;
+	map->sin_angle = 1.200;
+	map->cos_angle = 0.362;
+	map->sin_z_angle = 0.0;
+	map->cos_z_angle = 0.0;
+	map->depth_scale = 0.135;
+	map->color_base = 0xFFD700FF;
+	map->color_transit = 0xFF6347FF;
+	map->color_top = 0x4682B4FF;
 }
+
 int	main(int ac, char **av)
 {
-	t_fdf *fdf; //out struc for map has also the pointer for display and windows
+	t_map	*map;
 
 	if (ac != 2)
-		generic_error();
-	fdf = (t_fdf*)malloc(sizeof(t_fdf));
-	read_map(av[1], fdf->map);
-	fdf->map->zoom = 20;
-	draw(fdf);
-//	mlx_key_hook(data->mlx_dis, deal_key, NULL);
-	mlx_loop(data->mlx_win);
+		return (ft_printf("Usage: ./fdf <filename>.fdf\n"), 1);
+	map = (t_map *)malloc(sizeof(t_map));
+	if (!map)
+		error_exit(NULL, -3);
+	read_map(av[1], map);
+	init_struct(map);
+	if ((mlx_image_to_window(map->init, map->win, 0, 0)) == -1)
+		error_exit(map, 1);
+	draw_base(map);
+	if (!(mlx_loop_hook(map->init, key_hook, map)))
+		error_exit(map, 1);
+	mlx_loop(map->init);
+	mlx_terminate(map->init);
+	free(map);
+	return (EXIT_SUCCESS);
 }
-
-// int main(int ac, char **av) //testign mapr read main
-// {
-// 	t_map *data;
-
-// 	data = (t_map*)malloc(sizeof(t_map));
-// 	read_map(av[1], data);
-	
-// 	(void)ac;
-// 	int i;
-// 	int j;
-	
-//     // Iterate over rows
-//     for (i = 0; i < data->height && i < 10; i++) {
-//         // Iterate over columns
-//         for (j = 0; j < data->width && j < 20; j++) {
-//             printf("%3d ", data->depth[i][j]);
-//         }
-//         printf("\n");
-// 	}
-// }

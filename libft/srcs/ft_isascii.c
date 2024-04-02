@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 22:58:02 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/13 13:11:26 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:30:14 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ DESCRIPTION
      ter between 0 and octal 0177 inclusive.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 int	ft_isascii(int i)
 {

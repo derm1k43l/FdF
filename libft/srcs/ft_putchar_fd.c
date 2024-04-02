@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:13:57 by mrusu             #+#    #+#             */
-/*   Updated: 2023/10/13 17:05:43 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:34 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Description Outputs the character ’c’ to the given file
 descriptor.
 */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
