@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:32:52 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/02 15:38:00 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/03 13:23:54 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_map_dimensions(char *file_name, t_map *map)
 
 	fd = open(file_name, O_RDONLY, 0);
 	if (fd == -1)
-		return (0);
+		exit(1);
 	height = 1;
 	line = get_next_line(fd);
 	if (line == NULL)
@@ -48,7 +48,13 @@ void	allocate_depth_matrix(t_map *map)
 	i = 0;
 	map->depth_matrix = (int **)malloc(sizeof(int *) * (map->height + 1));
 	if (map->depth_matrix == NULL)
-		error_exit(map, 1);
+		exit(1);
+	while (i < map->height)
+	{
+		map->depth_matrix[i] = NULL;
+		i++;
+	}
+	i = 0;
 	while (i < map->height)
 	{
 		map->depth_matrix[i] = (int *)malloc(sizeof(int) * map->width);

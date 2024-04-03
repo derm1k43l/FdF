@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:04:40 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/02 15:50:49 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/03 13:30:53 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 		return (ft_printf("Usage: ./fdf <filename>.fdf\n"), 1);
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
-		error_exit(NULL, -3);
+		error_exit(NULL, 0);
 	read_map(av[1], map);
 	init_struct(map);
 	if ((mlx_image_to_window(map->init, map->win, 0, 0)) == -1)
@@ -47,6 +47,8 @@ int	main(int ac, char **av)
 		error_exit(map, 1);
 	mlx_loop(map->init);
 	mlx_terminate(map->init);
+	cleanup_map(map);
 	free(map);
+	map = NULL;
 	return (EXIT_SUCCESS);
 }
