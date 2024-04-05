@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:07 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/03 12:07:02 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/05 15:14:30 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,33 @@ t_line	transform(t_map *map, t_line line)
 	float	temp_x1;
 	float	temp_y1;
 
-	temp_x = (line.x_start - line.y_start) * cos(map->cos_angle);
-	temp_y = (line.x_start + line.y_start) * sin(map->sin_angle) - line.z_start;
-	temp_x1 = (line.x_end - line.y_end) * cos(map->cos_angle);
-	temp_y1 = (line.x_end + line.y_end) * sin(map->sin_angle) - line.z_end;
-	line.x_start = temp_x * cos(map->cos_z_angle)
-		- temp_y * sin(map->sin_z_angle) + map->x_position;
-	line.y_start = temp_x * sin(map->cos_z_angle)
-		+ temp_y * cos(map->sin_z_angle) + map->y_position;
-	line.x_end = temp_x1 * cos(map->cos_z_angle)
-		- temp_y1 * sin(map->sin_z_angle) + map->x_position;
-	line.y_end = temp_x1 * sin(map->cos_z_angle)
-		+ temp_y1 * cos(map->sin_z_angle) + map->y_position;
+	if (map->is_3d)
+	{
+		temp_x = (line.x_start - line.y_start) * cos(map->cos_angle);
+		temp_y = (line.x_start + line.y_start) * sin(map->sin_angle)
+			- line.z_start;
+		temp_x1 = (line.x_end - line.y_end) * cos(map->cos_angle);
+		temp_y1 = (line.x_end + line.y_end) * sin(map->sin_angle) - line.z_end;
+		line.x_start = temp_x * cos(map->cos_z_angle)
+			- temp_y * sin(map->sin_z_angle) + map->x_position;
+		line.y_start = temp_x * sin(map->cos_z_angle)
+			+ temp_y * cos(map->sin_z_angle) + map->y_position;
+		line.x_end = temp_x1 * cos(map->cos_z_angle)
+			- temp_y1 * sin(map->sin_z_angle) + map->x_position;
+		line.y_end = temp_x1 * sin(map->cos_z_angle)
+			+ temp_y1 * cos(map->sin_z_angle) + map->y_position;
+	}
+	else
+		line = transform2d(map, line);
+	return (line);
+}
+
+t_line	transform2d(t_map *map, t_line line)
+{
+	line.x_start = line.x_start * map->size + map->x_position;
+	line.y_start = line.y_start * map->size + map->y_position;
+	line.x_end = line.x_end * map->size + map->x_position;
+	line.y_end = line.y_end * map->size + map->y_position;
 	return (line);
 }
 

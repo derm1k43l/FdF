@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:04:40 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/03 13:30:53 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/05 16:19:50 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,19 @@ void	init_struct(t_map *map)
 	map->color_base = 0xFFD700FF;
 	map->color_transit = 0xFF6347FF;
 	map->color_top = 0x4682B4FF;
+	map->is_3d = true;
 }
+
+// void	leaks()
+// {
+// 	system("leaks fdf");
+// }
 
 int	main(int ac, char **av)
 {
 	t_map	*map;
 
+	// atexit(leaks);
 	if (ac != 2)
 		return (ft_printf("Usage: ./fdf <filename>.fdf\n"), 1);
 	map = (t_map *)malloc(sizeof(t_map));
@@ -49,6 +56,5 @@ int	main(int ac, char **av)
 	mlx_terminate(map->init);
 	cleanup_map(map);
 	free(map);
-	map = NULL;
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:14:31 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/02 15:42:28 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/05 15:02:17 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_map
 	float	depth_scale;
 	void	*init;
 	void	*win;
+	bool	is_3d;
 }	t_map;
 
 // Structure for lines atributes
@@ -94,6 +95,7 @@ t_line	transform(t_map *map, t_line line);
 void	bresenham(t_line line, t_map *map);
 void	draw_line(t_line line, t_map *map, int max);
 void	draw_base(t_map *map);
+t_line	transform2d(t_map *map, t_line line);
 
 // hooks.
 void	key_hook(void *parameter);

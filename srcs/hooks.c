@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:12 by mrusu             #+#    #+#             */
-/*   Updated: 2024/03/27 13:20:55 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/05 15:24:36 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void	other_key_hook(t_map *map)
 		map->depth_scale += 0.005;
 	if (mlx_is_key_down(map->init, MLX_KEY_PAGE_DOWN))
 		map->depth_scale -= 0.005;
+	if (mlx_is_key_down(map->init, MLX_KEY_KP_DECIMAL))
+		map->is_3d = !map->is_3d;
 }
 
 void	reset_struct(t_map *map)
@@ -94,4 +96,5 @@ void	reset_struct(t_map *map)
 	map->color_base = 0xFFD700FF;
 	map->color_transit = 0xFF6347FF;
 	map->color_top = 0x4682B4FF;
+	map->is_3d = true;
 }
