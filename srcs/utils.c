@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:28 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/03 13:23:36 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 12:46:44 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,22 @@ float	absolute(float a)
 
 void	cleanup_map(t_map *map)
 {
-	int	**map_depth;
 	int	i;
 
-	i = 0;
-	map_depth = map->depth_matrix;
-	if (map == NULL || map->depth_matrix == NULL)
+	if (map == NULL)
 		return ;
-	while (map_depth && *map_depth)
+	if (map->depth_matrix != NULL)
 	{
-		free(*map_depth);
-		*map_depth = NULL;
-		map_depth++;
+		i = 0;
+		while (i < map->height)
+		{
+			free(map->depth_matrix[i]);
+			i++;
+		}
+		free(map->depth_matrix);
+		map->depth_matrix = NULL;
 	}
-	free(map->depth_matrix);
-	map->depth_matrix = NULL;
+	free(map);
 }
 
 float	maxim(float x, float y)

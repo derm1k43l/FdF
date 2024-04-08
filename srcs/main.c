@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:04:40 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/05 16:19:50 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 14:12:03 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,5 @@ int	main(int ac, char **av)
 	mlx_loop(map->init);
 	mlx_terminate(map->init);
 	cleanup_map(map);
-	free(map);
 	return (EXIT_SUCCESS);
 }

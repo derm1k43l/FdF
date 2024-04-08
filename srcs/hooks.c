@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:12 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/05 15:24:36 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 11:05:41 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,19 @@ void	control_hook(t_map *map)
 void	other_key_hook(t_map *map)
 {
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_EQUAL))
-		map->color_base = 0xFFD700FF;
+	{
+		if (map->color_base == (int)0xFFD700FF)
+			map->color_base = 0x000000FF;
+		else
+			map->color_base = 0xFFD700FF;
+	}
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_DIVIDE))
-		map->color_base = 0x000000FF;
+	{
+		if (map->color_top == (int)0x4682B4FF)
+			map->color_top = 0x000000FF;
+		else
+			map->color_top = 0x4682B4FF;
+	}
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_MULTIPLY))
 		map->sin_angle = 0.0;
 	if (mlx_is_key_down(map->init, MLX_KEY_PAGE_UP))
@@ -80,7 +90,10 @@ void	other_key_hook(t_map *map)
 	if (mlx_is_key_down(map->init, MLX_KEY_PAGE_DOWN))
 		map->depth_scale -= 0.005;
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_DECIMAL))
+	{
 		map->is_3d = !map->is_3d;
+		sleep(1);
+	}
 }
 
 void	reset_struct(t_map *map)

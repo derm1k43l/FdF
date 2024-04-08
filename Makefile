@@ -6,7 +6,7 @@
 #    By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:17:17 by mrusu             #+#    #+#              #
-#    Updated: 2024/04/05 10:34:29 by mrusu            ###   ########.fr        #
+#    Updated: 2024/04/08 14:22:28 by mrusu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = cc
 
 # FLAGS FOR COMPILATION
-FLAGS = -Wall -Wextra -Werror -g -Ofast -Wunreachable-code # -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -Ofast -Wunreachable-code #-fsanitize=address
 
 # LIBRARY NAME
 LIBFT = libft.a
