@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:12 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/08 11:05:41 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 16:42:03 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,37 @@ void	key_hook(void *parameter)
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_0))
 		palette_calming(map);
 	other_key_hook(map);
-	control_hook(map);
+	rotation_hook(map);
 	reset_background(map);
 	draw_base(map);
 	print_current_values(map);
 }
 
-void	control_hook(t_map *map)
+void	rotation_hook(t_map *map)
 {
-	float	rot_spd;
-
-	rot_spd = 0.01;
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_ADD))
-		map->size += 1;
+		map->size += 0.15;
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_SUBTRACT))
-		map->size -= 1;
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_8))
-		map->cos_z_angle = smooth_interpolate(map->cos_z_angle, 6.0, rot_spd);
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_2))
-		map->cos_z_angle = smooth_interpolate(map->cos_z_angle, -6.0, rot_spd);
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_4))
-		map->sin_angle = smooth_interpolate(map->sin_angle, 6.0, rot_spd);
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_6))
-		map->sin_angle = smooth_interpolate(map->sin_angle, -6.0, rot_spd);
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_1))
-		map->sin_z_angle = smooth_interpolate(map->sin_z_angle, 6.0, rot_spd);
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_3))
-		map->sin_z_angle = smooth_interpolate(map->sin_z_angle, -6.0, rot_spd);
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_7))
-		map->cos_angle = smooth_interpolate(map->cos_angle, 6.0, rot_spd);
-	if (mlx_is_key_down(map->init, MLX_KEY_KP_9))
-		map->cos_angle = smooth_interpolate(map->cos_angle, -6.0, rot_spd);
+		map->size -= 0.15;
+	if (map->is_3d)
+	{
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_8))
+			map->cos_z_angle = smooth_interpolate(map->cos_z_angle, 5.0);
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_2))
+			map->cos_z_angle = smooth_interpolate(map->cos_z_angle, -5.0);
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_4))
+			map->sin_angle = smooth_interpolate(map->sin_angle, 5.0);
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_6))
+			map->sin_angle = smooth_interpolate(map->sin_angle, -5.0);
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_1))
+			map->sin_z_angle = smooth_interpolate(map->sin_z_angle, 5.0);
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_3))
+			map->sin_z_angle = smooth_interpolate(map->sin_z_angle, -5.0);
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_7))
+			map->cos_angle = smooth_interpolate(map->cos_angle, 5.0);
+		if (mlx_is_key_down(map->init, MLX_KEY_KP_9))
+			map->cos_angle = smooth_interpolate(map->cos_angle, -5.0);
+	}
 }
 
 void	other_key_hook(t_map *map)
@@ -92,7 +92,7 @@ void	other_key_hook(t_map *map)
 	if (mlx_is_key_down(map->init, MLX_KEY_KP_DECIMAL))
 	{
 		map->is_3d = !map->is_3d;
-		sleep(1);
+		usleep(500000);
 	}
 }
 

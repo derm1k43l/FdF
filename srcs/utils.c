@@ -6,16 +6,18 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:28 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/08 12:46:44 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 15:54:01 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
 
-float	smooth_interpolate(float current, float target, float speed)
+float	smooth_interpolate(float current, float target)
 {
 	float	diff;
+	float	speed;
 
+	speed = 0.015;
 	diff = target - current;
 	return (current + diff * speed);
 }

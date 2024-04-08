@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:04:40 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/08 14:12:03 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 15:24:46 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,16 @@ void	init_struct(t_map *map)
 	map->is_3d = true;
 }
 
-// void	leaks()
-// {
-// 	system("leaks fdf");
-// }
+void	leaks()
+{
+	system("leaks fdf");
+}
 
 int	main(int ac, char **av)
 {
 	t_map	*map;
 
-	// atexit(leaks);
+	atexit(leaks);
 	if (ac != 2)
 		return (ft_printf("Usage: ./fdf <filename>.fdf\n"), 1);
 	map = (t_map *)malloc(sizeof(t_map));

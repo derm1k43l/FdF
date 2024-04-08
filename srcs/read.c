@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:32:52 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/05 11:00:15 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 16:52:44 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_map_dimensions(char *file_name, t_map *map)
 	fd = open(file_name, O_RDONLY, 0);
 	if (fd == -1)
 		exit(1);
-	height = 1;
+	height = 0;
 	line = get_next_line(fd);
 	if (line == NULL)
 		return (0);
@@ -114,7 +114,7 @@ void	read_map(char *file_name, t_map *map)
 	char	*line;
 
 	if (!get_map_dimensions(file_name, map))
-		error_exit(map, 1);
+		exit(1);
 	fd = open(file_name, O_RDONLY, 0);
 	if (fd == -1)
 		error_exit(map, 1);

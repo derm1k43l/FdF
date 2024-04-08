@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:14:31 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/05 15:02:17 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/08 15:54:14 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_map
 	int		height;
 	int		width;
 	int		**depth_matrix;
-	int		size;
+	float	size;
 	int		color_base;
 	int		color_transit;
 	int		color_top;
@@ -99,7 +99,7 @@ t_line	transform2d(t_map *map, t_line line);
 
 // hooks.
 void	key_hook(void *parameter);
-void	control_hook(t_map *map);
+void	rotation_hook(t_map *map);
 void	other_key_hook(t_map *map);
 void	reset_struct(t_map *map);
 
@@ -111,7 +111,7 @@ int		count_words(const char *str);
 void	read_map(char *file_name, t_map *map);
 
 // utils.c
-float	smooth_interpolate(float current, float target, float speed);
+float	smooth_interpolate(float current, float target);
 float	absolute(float a);
 void	cleanup_map(t_map *map);
 float	maxim(float x, float y);
