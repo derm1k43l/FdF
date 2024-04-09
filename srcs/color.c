@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 10:41:04 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/02 14:00:33 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/09 12:59:36 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,9 @@ void	reset_background(t_map *map)
 
 void	print_current_values(t_map *map)
 {
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
-	ft_printf("\n");
+	ft_printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 	ft_printf("\n======== Current Values ========\n");
-	ft_printf("Size: 		   %d 	( + / - ZOOM)\n", map->size);
+	ft_printf("Size: 		   %f 	( + / - ZOOM)\n", map->size);
 	ft_printf("X Position:	   %d	( LEFT / RIGHT)\n", map->x_position);
 	ft_printf("Y Position:	   %d 	( UP / DOWN )\n", map->y_position);
 	ft_printf("Sin Angle:      %f	( 4 / 6 )\n", map->sin_angle);

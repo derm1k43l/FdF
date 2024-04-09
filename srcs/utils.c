@@ -6,7 +6,7 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:33:28 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/08 15:54:01 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/09 10:12:10 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ void	error_exit(t_map *map, int flag)
 	ft_printf("ERROR: Something went wrong!\n");
 	if (flag == 0 || flag == 1 || flag == 2)
 		cleanup_map(map);
+	if (flag == -1)
+	{
+		free(map);
+		exit(EXIT_FAILURE);
+	}
 	if (map != NULL)
 	{
 		free(map);

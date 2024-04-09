@@ -6,11 +6,21 @@
 /*   By: mrusu <mrusu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:32:52 by mrusu             #+#    #+#             */
-/*   Updated: 2024/04/08 16:52:44 by mrusu            ###   ########.fr       */
+/*   Updated: 2024/04/09 13:22:03 by mrusu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/FdF.h"
+
+int valid_map_line(char *line) {
+    while (*line) {
+        if (!ft_isalnum(*line) && *line != ' ' && *line != '\n') {
+            return 0; // Invalid character found
+        }
+        line++;
+    }
+    return 1; // All characters are either alphanumeric, space, or newline
+}
 
 int	get_map_dimensions(char *file_name, t_map *map)
 {
@@ -23,8 +33,8 @@ int	get_map_dimensions(char *file_name, t_map *map)
 		exit(1);
 	height = 0;
 	line = get_next_line(fd);
-	if (line == NULL)
-		return (0);
+	if (line == NULL || !valid_map_line(line))
+		error_exit(map, -1);
 	map->width = count_words(line);
 	free(line);
 	fd = open(file_name, O_RDONLY, 0);
